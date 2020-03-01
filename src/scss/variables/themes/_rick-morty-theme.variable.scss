@@ -1,0 +1,28 @@
+$rick-morty-theme: (
+  primary: (
+    main: #004d40,
+    darker: #00251a,
+    lighter: #39796b
+  ),
+  secondary: (
+    main: #fccf6c,
+    darker: #c69d3d,
+    lighter: #ffff9c
+  ),
+  text: (
+    primary: (
+      main: white,
+      darker: white,
+      lighter: white
+    ),
+    secondary: (
+      main: rgba(black, 0.87),
+      darker: rgba(black, 0.87),
+      lighter: rgba(black, 0.87)
+    )
+  ),
+  background: #fccf6c,
+  foreground: #ccc,
+  warning: #d85a17,
+  error: #b00020
+);

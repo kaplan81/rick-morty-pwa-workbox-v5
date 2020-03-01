@@ -1,0 +1,13 @@
+$breakpoints: (
+  // Extra small devices (small phones).
+    xs: 320px,
+  // Small devices (phones, phablets and tablets).
+    sm: 576px,
+  // Medium devices (landscape tablets and laptops).
+    md: 768px,
+  // Large devices (regular monitors).
+    lg: 992px,
+  // Extra large devices (big monitors)
+    xl: 1200px
+);
+// xs is default in mobile first.

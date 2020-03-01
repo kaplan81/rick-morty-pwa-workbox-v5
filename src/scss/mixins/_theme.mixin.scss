@@ -1,0 +1,65 @@
+@import '../functions/deep-map.function';
+
+@mixin theme($theme) {
+  $primary: deep-map-get($theme, 'primary', 'main') !global;
+  $primary-darker: deep-map-get($theme, 'primary', 'darker') !global;
+  $primary-lighter: deep-map-get($theme, 'primary', 'lighter') !global;
+  $primary-text: deep-map-get($theme, 'text', 'primary', 'main') !global;
+  $primary-text-darker: deep-map-get(
+    $theme,
+    'text',
+    'primary',
+    'darker'
+  ) !global;
+  $primary-text-lighter: deep-map-get(
+    $theme,
+    'text',
+    'primary',
+    'lighter'
+  ) !global;
+  @if map-has-key($theme, secondary) {
+    $secondary: deep-map-get($theme, 'secondary', 'main') !global;
+    $secondary-darker: deep-map-get($theme, 'secondary', 'darker') !global;
+    $secondary-lighter: deep-map-get($theme, 'secondary', 'lighter') !global;
+    $secondary-text: deep-map-get($theme, 'text', 'secondary', 'main') !global;
+    $secondary-text-darker: deep-map-get(
+      $theme,
+      'text',
+      'secondary',
+      'darker'
+    ) !global;
+    $secondary-text-lighter: deep-map-get(
+      $theme,
+      'text',
+      'secondary',
+      'lighter'
+    ) !global;
+  } @else {
+    $secondary: null !global;
+    $secondary-darker: null !global;
+    $secondary-lighter: null !global;
+    $secondary: null !global;
+    $secondary-text-darker: null !global;
+    $secondary-text-lighter: null !global;
+  }
+  @if map-has-key($theme, background) {
+    $background: map-get($theme, 'background') !global;
+  } @else {
+    $background: #fff;
+  }
+  @if map-has-key($theme, foreground) {
+    $foreground: map-get($theme, 'foreground') !global;
+  } @else {
+    $foreground: null !global;
+  }
+  @if map-has-key($theme, warning) {
+    $warning: map-get($theme, 'warning') !global;
+  } @else {
+    $warning: null !global;
+  }
+  @if map-has-key($theme, error) {
+    $error: map-get($theme, 'error') !global;
+  } @else {
+    $error: null !global;
+  }
+}

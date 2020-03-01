@@ -1,0 +1,8 @@
+.vscode
+
+node_modules
+dist
+lighthouse/**.report.html
+lighthouse
+
+.DS_Store

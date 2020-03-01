@@ -1,0 +1,19 @@
+@import 'spacing.variable';
+
+/* Typography */
+$rem: 16px;
+
+/* Borders */
+$border: 1px;
+$circle-border-radius: 50%;
+$card-border-radius: $pinch;
+
+/* Sizes */
+$card-size: 185px;
+
+/* Heights */
+$header-height: $space * 3;
+$footer-height: $space * 4;
+
+/* Widths */
+$sidebar-width: $space * 10;

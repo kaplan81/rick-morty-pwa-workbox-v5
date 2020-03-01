@@ -1,0 +1,6 @@
+@import '../mixins/theme.mixin.scss';
+@import 'themes/_rick-morty-theme.variable';
+
+$color-transparency: 0.8;
+
+@include theme($rick-morty-theme);

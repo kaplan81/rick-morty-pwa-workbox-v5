@@ -1,0 +1,84 @@
+@import '../variables/grid.variable';
+
+@mixin grid-item-range($axis, $start, $end, $media: null) {
+  $prefix: $axis;
+  @if $media {
+    $prefix: #{$axis}-#{$media};
+  }
+  @for $index from $start through $end {
+    @for $sub-index from $index + 1 through $end + 1 {
+      .#{$prefix}-#{$index}-#{$sub-index} {
+        grid-#{$axis}: #{$index} / #{$sub-index};
+      }
+    }
+  }
+}
+
+@mixin grid-placements(
+  $placements: $grid-area-placements,
+  $areas: $grid-area-types,
+  $item-alignments: $item-axis-alignments,
+  $content-alignments: $content-axis-alignments
+) {
+  $alignments: null;
+  @each $placement in $placements {
+    @each $area in $areas {
+      @if $area == 'items' or $area == 'self' {
+        $alignments: $item-alignments;
+      } @else {
+        $alignments: $content-alignments;
+      }
+      @each $alignment in $alignments {
+        .#{$placement}-#{$area}-#{$alignment} {
+          #{$placement}-#{$area}: #{$alignment};
+        }
+      }
+    }
+  }
+}
+
+@mixin grid-systems($media: null) {
+  $grid-prefix: 'grid';
+  @if $media {
+    $grid-prefix: #{$grid-prefix}-#{$media};
+  }
+  $col-prefix: 'col';
+  @if $media {
+    $col-prefix: #{$col-prefix}-#{$media};
+  }
+  .#{$grid-prefix}-12 {
+    display: grid;
+    grid-template-columns:
+      [#{$col-prefix}-first] 1fr repeat(
+        10,
+        [#{$col-prefix}-end col-start] 1fr [#{$col-prefix}-end col-start]
+      )
+      1fr [#{$col-prefix}-last];
+  }
+  .#{$grid-prefix}-10 {
+    display: grid;
+    grid-template-columns:
+      [#{$col-prefix}-first] 1fr repeat(
+        8,
+        [#{$col-prefix}-end col-start] 1fr [#{$col-prefix}-end col-start]
+      )
+      1fr [#{$col-prefix}-last];
+  }
+}
+
+@mixin grid-rows() {
+  @include grid-item-range('row', 1, 6);
+}
+
+@mixin grid-cols($media: null) {
+  $prefix: 'col';
+  @if $media {
+    $prefix: #{$prefix}-#{$media};
+  }
+  @for $i from 1 through 12 {
+    .#{$prefix}-#{$i} {
+      grid-column: auto / span #{$i};
+    }
+  }
+  @include grid-item-range('column', 1, 12, $media);
+}

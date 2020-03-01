@@ -1,0 +1,60 @@
+@import '../mixins/media-queries.mixin';
+@import '../mixins/grid.mixin';
+
+/*
+  Declarative CCS Grid implementation
+  On 2 systems:
+    -Typical 12 columns system.
+    -Alternative 10 columns system.
+  Other layouts will have to be specified on the CSS and not on the HTML.
+  Bootstrap breakpoints are used for media queries.
+*/
+
+/* Justify and align rules for grid, grid content and grid items */
+@include grid-placements();
+
+/* Inline-grid and subgrid specifications do not work in all browsers */
+// .inline-grid {
+//   display: inline-grid;
+// }
+// .sub-grid {
+//   display: subgrid;
+// }
+
+/*
+  We can use the hidden rules in combination with row overlapping.
+  We set it only for 6 rows.
+*/
+@include grid-rows();
+
+/*
+  Column grid systems.
+  Extra small devices is default in a mobile first philosophy.
+  So no media query required here. There is no .col-xs-xx but just .col-xx
+*/
+@include grid-systems();
+@include grid-cols();
+
+/* Small devices */
+@include bigger-than(sm) {
+  @include grid-systems('sm');
+  @include grid-cols('sm');
+}
+
+/* Medium devices */
+@include bigger-than(md) {
+  @include grid-systems('md');
+  @include grid-cols('md');
+}
+
+/* Large devices */
+@include bigger-than(lg) {
+  @include grid-systems('lg');
+  @include grid-cols('lg');
+}
+
+/* Extra large devices */
+@include bigger-than(xl) {
+  @include grid-systems('xl');
+  @include grid-cols('xl');
+}

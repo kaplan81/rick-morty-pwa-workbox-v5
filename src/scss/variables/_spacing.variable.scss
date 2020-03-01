@@ -1,0 +1,16 @@
+$gap: 10px;
+$pinch: $gap / 2;
+$pinch-: $pinch - 1;
+$pinch--: $pinch - 2;
+$pinch---: $pinch - 3;
+$gap-: $gap - 1;
+$gap--: $gap - 2;
+$gap---: $gap - 3;
+$gutter: $pinch * 3;
+$gutter-: $gutter - 1;
+$gutter--: $gutter - 2;
+$gutter---: $gutter - 3;
+$space: $gap * 2;
+$space-: $space - 1;
+$space--: $space - 2;
+$space---: $space - 3;
