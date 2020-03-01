@@ -6,7 +6,7 @@
 
 ## Ultimate Blog
 
-This repository was created for [Ultimate Courses Blog](https://ultimatecourses.com/blog/) and its purpose is to illustrate [Andrés Gesteira's second article on the topic "The Ultimate Guide to Progressive Web Apps"]().
+This repository was created for [Ultimate Courses Blog](https://ultimatecourses.com/blog/) and its purpose is to illustrate [Andrés Gesteira's second article on the topic "The Ultimate Guide to Progressive Web Apps"](xxx).
 
 ## Workbox
 
@@ -24,7 +24,7 @@ Each of those steps are zero-based numbered in the shape of branches. They keep 
 
 The step 0 branch pictures the specific goals to achieve a PWA. No code to be provided there. The next steps/branches do involve some development. They are your tasks, your challenges.
 
-The steps to follow on each branch are explained in (the article)[].
+The steps to follow on each branch are explained in detail in [the article](xxx).
 
 **IMPORTANT**: the only branch you should checkout is `step-00-non-progressive-app`. It is also recommended that you create your own branch from that one (e.g. `step-00-non-progressive-app-mine`).
 
@@ -57,10 +57,8 @@ git checkout step-00-non-progressive-app
 git checkout -b step-00-non-progressive-app-mine
 ```
 
-Now click [here](xxx) to read the instructions of the step 0 branch.
+Now click [here](xxx) start reading the article and your PWA adventure will commence.
 
-The game is afoot.
-
-# Related documentation
+## Related documentation
 
 [https://ultimatecourses.com/blog/ultimate-guide-progressive-web-apps-fundamentals](https://ultimatecourses.com/blog/ultimate-guide-progressive-web-apps-fundamentals)
