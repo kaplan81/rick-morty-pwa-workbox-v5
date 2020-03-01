@@ -6,11 +6,15 @@
 
 ## Ultimate Blog
 
-This repository was created for [Ultimate Courses Blog](https://ultimatecourses.com/blog/) and its purpose is to illustrate Andrés Gesteira's second article on the topic "The Ultimate Guide to Progressive Web Apps".
+This repository was created for [Ultimate Courses Blog](https://ultimatecourses.com/blog/) and its purpose is to illustrate [Andrés Gesteira's second article on the topic "The Ultimate Guide to Progressive Web Apps"]().
 
 ## Workbox
 
-The 
+The chosen technology to develop our PWA at a professional level is Google's [Workbox](https://developers.google.com/web/tools/workbox) since it integrates the most advanced features.
+
+It's latest release (on the creation of this repository) is [Workbox v5.0.0](https://github.com/GoogleChrome/workbox/releases/tag/v5.0.0) wich adds a lot of improvements and most importantly: Typescript support.
+
+The build tool is Webpack which we will use not only to transpile Typescript but also to generate our service worker with the [workbox-webpack-plugin](https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-webpack-plugin).
 
 ## How to follow
 
