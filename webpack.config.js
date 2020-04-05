@@ -27,7 +27,9 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new CopyPlugin([
+      { from: 'src/css/reset.css', to: 'css/reset.css' },
       { from: 'node_modules/animate.css/animate.min.css', to: 'css/animate.min.css' },
+      { from: 'src/css/app.css', to: 'css/app.css' },
       { from: 'src/*.html', flatten: true },
       { from: 'src/assets', to: 'assets' },
       { from: 'src/pizza.ico' },

@@ -2,9 +2,10 @@
   "name": "rick-morty-pwa-workbox-webpack",
   "version": "1.0.0",
   "scripts": {
-    "build": "webpack --mode development && npm run sass",
+    "build": "npm run sass && webpack --mode development",
+    "clean:sass": "rm -rf ./src/css/*",
     "lighthouse": "npx lighthouse http://localhost:1981/ --view --chrome-flags=\"--headless\" --output-path=./lighthouse/lighthouse_\"$(date \"+%Y-%m-%d_%H-%M-%S\")\".report.html",
-    "sass": "npx sass src/scss:dist/css --style compressed --no-source-map",
+    "sass": "npm run clean:sass && npx sass src/scss:src/css --style compressed --no-source-map",
     "start": "npx serve -l 1981 dist"
   },
   "license": "ISC",
