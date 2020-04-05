@@ -1,8 +1,6 @@
 # Rick & Morty PWA
 
-> How to create your own PWA with Workbox 5 step by step.
-
-<img src="visuals/pwa.svg">
+> Go to the article and scroll down to "Step 0".
 
 ## Ultimate Blog
 
