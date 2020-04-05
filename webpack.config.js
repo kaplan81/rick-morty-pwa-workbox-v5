@@ -1,6 +1,7 @@
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
 const path = require('path');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
   entry: {
@@ -32,5 +33,9 @@ module.exports = {
       { from: 'src/pizza.ico' },
       { from: 'src/manifest.json', to: 'manifest.json' },
     ]),
+    new WorkboxPlugin.InjectManifest({
+      swSrc: './src/ts/sw.ts',
+      swDest: 'sw.js',
+    }),
   ],
 };
