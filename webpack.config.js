@@ -30,6 +30,7 @@ module.exports = {
       { from: 'src/*.html', flatten: true },
       { from: 'src/assets', to: 'assets' },
       { from: 'src/pizza.ico' },
+      { from: 'src/manifest.json', to: 'manifest.json' },
     ]),
   ],
 };
