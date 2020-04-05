@@ -1,6 +1,6 @@
 {
-  "short_name": "Rick & Morty",
   "name": "Rick & Morty PWA",
+  "short_name": "Rick & Morty",
   "icons": [
     {
       "src": "/assets/img/icons/rick-morty-pwa-icon-192x192.png",
@@ -13,8 +13,9 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "/index.html",
+  "theme_color": "#004d40",
   "background_color": "#fccf6c",
   "display": "standalone",
-  "theme_color": "#004d40"
+  "scope": "/",
+  "start_url": "/index.html"
 }
