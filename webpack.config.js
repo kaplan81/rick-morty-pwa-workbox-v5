@@ -6,6 +6,7 @@ const WorkboxPlugin = require('workbox-webpack-plugin');
 module.exports = {
   entry: {
     app: './src/ts/app.ts',
+    install: './src/ts/install.ts',
   },
   output: {
     filename: 'js/[name].js',
