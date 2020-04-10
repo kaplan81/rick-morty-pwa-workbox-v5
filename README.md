@@ -1,6 +1,6 @@
 # Rick & Morty PWA
 
-> Go to the article and scroll down to "Step 0".
+> Go to the article and scroll down to "Step 1".
 
 ## Ultimate Blog
 
