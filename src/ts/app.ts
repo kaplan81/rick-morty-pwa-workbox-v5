@@ -1,34 +1,37 @@
 import * as api from 'rickmortyapi';
-import { RickMortyApp } from './models/app.model';
 import { CharacterCard, CharacterDetail, CharacterList } from './models/character.model';
 
 document.addEventListener(
   'DOMContentLoaded',
-  function() {
-    init();
+  function () {
+    init(null);
   },
   false,
 );
 
-const rickMortyApp: RickMortyApp = {
-  urlParams: null,
-};
+(function (history: History) {
+  const pushState = history.pushState;
+  const id: number | null = history.state;
+  history.pushState = function (id) {
+    init(id);
+    return pushState.apply(history, arguments);
+  };
+})((window as Window).history);
+
 const main: HTMLElement = document.querySelector('main');
-const characters: HTMLElement = document.querySelector('.characters');
-const character: HTMLElement = document.querySelector('.character');
+const charactersPage: HTMLElement = document.querySelector('.characters-page');
+const characterPage: HTMLElement = document.querySelector('.character-page');
 
-function init() {
-  rickMortyApp.urlParams = new URLSearchParams(window.location.search);
-
-  if (characters) {
-    renderCharacters();
-  } else if (character && rickMortyApp.urlParams.has('id')) {
-    renderCharacter();
-  }
+function init(id: number | null): void {
+  scrollToTop();
+  id === null ? renderCharacters() : renderCharacter(id);
 }
 
-async function renderCharacter(): Promise<any> {
-  const characterId: string = rickMortyApp.urlParams.get('id');
+async function renderCharacter(id: number): Promise<any> {
+  characterPage.style.removeProperty('display');
+  charactersPage.style.display = 'none';
+  const character: HTMLElement = characterPage.querySelector('.character');
+  const characterId: string = String(id);
   const selectedCharacter: CharacterDetail = await api.getCharacter(+characterId);
   const status: 'dead' | 'alive' =
     selectedCharacter.status === 'Dead' || selectedCharacter.status === 'unknown'
@@ -39,7 +42,6 @@ async function renderCharacter(): Promise<any> {
 
   const characterHeading: HTMLElement = document.querySelector('.character-heading');
   characterHeading.append('This character is ' + status + '!');
-
   const card: CharacterCard = createCard();
   card.figure.classList.add('grid-12');
   card.image.setAttribute('src', selectedCharacter.image);
@@ -56,14 +58,22 @@ async function renderCharacter(): Promise<any> {
     <p><em>Species</em>: ${selectedCharacter.species}</p>
     <p><em>Origin</em>: ${selectedCharacter.origin.name}</p>
     <p><em>Location</em>: ${selectedCharacter.location.name}</p>
-    <a href="/">Back to the list</a>
+    <a class="back-home">Back to the list</a>
   `;
+  const backHome: HTMLElement = card.caption.querySelector('.back-home');
+  backHome.addEventListener('click', function () {
+    (window as Window).history.pushState(null, null, '/');
+    cleanCard(characterHeading, character);
+  });
   card.caption.classList.add('col-12', 'col-sm-6');
   generateFigure(character, card.figure, card.placeholderImage, card.image, card.caption);
   main.style.removeProperty('display');
 }
 
 async function renderCharacters(): Promise<any> {
+  charactersPage.style.removeProperty('display');
+  characterPage.style.display = 'none';
+  const characters: HTMLElement = charactersPage.querySelector('.characters');
   const twentyFirstCharacters: CharacterList = await api.getCharacter();
   shuffle(twentyFirstCharacters.results);
 
@@ -73,18 +83,25 @@ async function renderCharacters(): Promise<any> {
     const card: CharacterCard = createCard();
     card.image.setAttribute('src', singleCharacter.image);
     card.caption.innerHTML = `<h4>${singleCharacter.name}</h4>`;
-    card.figure.addEventListener('click', function() {
-      (window as Window).location.href = `/character?id=${singleCharacter.id}`;
+    card.figure.addEventListener('click', function () {
+      (window as Window).history.pushState(singleCharacter.id, null, `?id=${singleCharacter.id}`);
     });
-    card.figure.addEventListener('mouseover', function() {
+    card.figure.addEventListener('mouseover', function () {
       card.figure.classList.add('pulse');
     });
-    card.figure.addEventListener('mouseout', function() {
+    card.figure.addEventListener('mouseout', function () {
       card.figure.classList.remove('pulse');
     });
     generateFigure(characters, card.figure, card.placeholderImage, card.image, card.caption);
   }
   main.style.removeProperty('display');
+}
+
+function cleanCard(heading: HTMLElement, character: HTMLElement): void {
+  const figure: HTMLElement = character.querySelector('.character-card');
+  heading.innerHTML = '';
+  character.classList.remove('dead');
+  character.removeChild(figure);
 }
 
 function createCard(): CharacterCard {
@@ -111,17 +128,21 @@ function generateFigure(
   figure.appendChild(image);
   figure.appendChild(caption);
   parent.appendChild(figure);
-  image.addEventListener('load', function() {
+  image.addEventListener('load', function () {
     figure.removeChild(placeholderImage);
     image.style.removeProperty('display');
   });
+}
+
+function scrollToTop(): void {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
 function shuffle(characters: CharacterDetail[]): CharacterDetail[] {
   let currentIndex: number = characters.length,
     temporaryValue: CharacterDetail,
     randomIndex: number;
-
   while (0 !== currentIndex) {
     randomIndex = Math.floor(Math.random() * currentIndex);
     currentIndex -= 1;
