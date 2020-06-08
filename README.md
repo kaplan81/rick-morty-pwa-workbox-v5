@@ -1,6 +1,6 @@
 # Rick & Morty PWA
 
-> Go to [the article](step-03-offline-experience) and scroll down to "Step 3".
+> Go to [the article](https://ultimatecourses.com/blog/ultimate-guide-pwa-workbox) and scroll down to "Step 3".
 
 ## Ultimate Blog
 
