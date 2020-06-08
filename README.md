@@ -1,10 +1,10 @@
 # Rick & Morty PWA
 
-> Go to the article and scroll down to "Step 0".
+> Go to [the article](https://ultimatecourses.com/blog/ultimate-guide-pwa-workbox) and scroll down to "Step 0".
 
 ## Ultimate Blog
 
-This repository was created for [Ultimate Courses Blog](https://ultimatecourses.com/blog/) and its purpose is to illustrate [Andrés Gesteira's second article on the topic "The Ultimate Guide to Progressive Web Apps"](https://ultimatecourses.com/blog/).
+This repository was created for [Ultimate Courses Blog](https://ultimatecourses.com/blog/) and its purpose is to illustrate [Andrés Gesteira's second article on the topic "The Ultimate Guide to Progressive Web Apps"](https://ultimatecourses.com/blog/ultimate-guide-pwa-workbox).
 
 ## Workbox
 
@@ -22,7 +22,7 @@ Each of those steps are zero-based numbered in the shape of branches. They keep 
 
 The step 0 branch pictures the specific goals to achieve a PWA. No code to be provided there. The next steps/branches do involve some development. They are your tasks, your challenges.
 
-The steps to follow on each branch are explained in detail in [the article](https://ultimatecourses.com/blog/).
+The steps to follow on each branch are explained in detail in [the article](https://ultimatecourses.com/blog/ultimate-guide-pwa-workbox).
 
 **IMPORTANT**: the only branch you should checkout is `step-00-non-progressive-app`. It is also recommended that you create your own branch from that one (e.g. `step-00-non-progressive-app-mine`).
 
@@ -55,7 +55,7 @@ git checkout step-00-non-progressive-app
 git checkout -b step-00-non-progressive-app-mine
 ```
 
-Now click [here](https://ultimatecourses.com/blog/) start reading the article and your PWA adventure will commence.
+Now click [here](https://ultimatecourses.com/blog/ultimate-guide-pwa-workbox) start reading the article and your PWA adventure will commence.
 
 ## Related documentation
 
